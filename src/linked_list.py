@@ -37,6 +37,7 @@ class LinkedList:
             self.tail.next = Node(data)
             self.tail = self.tail.next
 
+    # Returns boolean of if the linked list contains the target
     def contains(self, target):
         head = self.head
         while head:
@@ -44,3 +45,14 @@ class LinkedList:
                 return True
             head = head.next
         return False
+
+    # Return the index of the first occurrence of the target, and -1 if not found
+    def first_index(self, target):
+        head, index = self.head, 0
+        while head:
+            if head.data == target:
+                return index
+            head = head.next
+            index += 1
+        return -1
+
