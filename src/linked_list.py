@@ -36,3 +36,11 @@ class LinkedList:
         else:
             self.tail.next = Node(data)
             self.tail = self.tail.next
+
+    def contains(self, target):
+        head = self.head
+        while head:
+            if head.data == target:
+                return True
+            head = head.next
+        return False
