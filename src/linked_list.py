@@ -31,6 +31,20 @@ class LinkedList:
             self.tail.next = Node(data)
             self.tail = self.tail.next
 
+    def remove_first(self, target):
+        head, prev = self.head, None
+        while head:
+            if head.data == target:
+                if prev:
+                    prev.next = head.next
+                    if not prev.next:
+                        self.tail = prev
+                else:
+                    head = head.next
+                    
+            prev = head
+            head = head.next
+
     # Returns boolean of if the linked list contains the target
     def contains(self, target):
         head = self.head
@@ -49,4 +63,3 @@ class LinkedList:
             head = head.next
             index += 1
         return -1
-

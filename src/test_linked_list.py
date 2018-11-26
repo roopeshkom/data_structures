@@ -31,3 +31,14 @@ def test_first_index():
     assert ll.first_index(0) == 0
     assert ll.first_index(2) == 2
     assert ll.first_index(7) == -1
+
+def test_remove_first():
+    ll = LinkedList()
+    for i in range(5):
+        ll.add_to_tail(i)
+    ll.remove_first(3)
+    assert str(ll) == '0->1->2->4'
+    ll.remove_first(6)
+    assert str(ll) == '0->1->2->4'
+    ll.remove_first(0)
+    assert str('1->2->4')
